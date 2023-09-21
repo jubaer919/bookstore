@@ -1,8 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
+import NavBar from './components/Layout/NavBar';
+import Books from './components/books/Books';
+import Catagories from './components/catagories/Catagories';
+
 function App() {
   return (
-    <div>
-      <h1>hello there</h1>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Books />} />
+        <Route path="/categories" element={<Catagories />} />
+      </Routes>
+    </>
   );
 }
 

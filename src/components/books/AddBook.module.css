@@ -1,0 +1,36 @@
+.form-container {
+  width: 60%;
+  margin: 4rem auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 1rem;
+}
+
+.form-group {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group input {
+  padding: 10px;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-add {
+  padding: 1rem 2rem;
+  background-color: rgb(31, 147, 192);
+  font-weight: bold;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
