@@ -10,16 +10,9 @@ export default function Books() {
   useEffect(() => {
     const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
     setBooksInfo(existingBooks);
-    // eslint-disable-next-line no-console
-    console.log(existingBooks);
   }, []);
 
   removeBookHandlerRef.current = (bookToRemove) => {
-    // eslint-disable-next-line no-console
-    console.log('books to remove id:', bookToRemove.id);
-    // eslint-disable-next-line no-console
-    console.log('books info id:', booksInfo[1].id);
-    // Convert the id to string for comparison
     const updatedBookList = booksInfo.filter((book) => book.id !== bookToRemove.id);
     setBooksInfo(updatedBookList);
     localStorage.setItem('books', JSON.stringify(updatedBookList));
@@ -27,8 +20,6 @@ export default function Books() {
 
   newBookHandlerRef.current = (existingBooks) => {
     setBooksInfo(existingBooks);
-    // eslint-disable-next-line no-console
-    console.log(existingBooks);
   };
 
   return (

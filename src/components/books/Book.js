@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import IndividualBook from './IndividualBook';
 
 function Book({ booksInfo, onRemove }) {
-  // eslint-disable-next-line no-console
-  console.log(booksInfo);
   return (
     <>
       {booksInfo.map((b) => (
