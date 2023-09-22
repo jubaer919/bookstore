@@ -1,0 +1,19 @@
+.nav {
+  background-color: white;
+  color: #777;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 2rem 10vw;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.heading {
+  color: rgb(85, 127, 198);
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
