@@ -1,31 +1,22 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import IndividualBook from './IndividualBook';
 
-function Book({ booksInfo, onRemove }) {
+function Book() {
+  const booksInfo = useSelector((state) => state.books.books);
+
   return (
     <>
       {booksInfo.map((b) => (
         <IndividualBook
           key={Math.random()}
-          id={b.id}
+          id={b.item_id}
           title={b.title}
           author={b.author}
-          gunra={b.gunra}
-          onRemove={onRemove}
+          category={b.category}
         />
       ))}
     </>
   );
 }
-
-Book.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  booksInfo: PropTypes.array.isRequired,
-};
-
-Book.propTypes = {
-  onRemove: PropTypes.func.isRequired,
-};
 
 export default Book;

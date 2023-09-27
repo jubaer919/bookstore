@@ -1,12 +1,104 @@
+// import React, { useState } from 'react';
+// // eslint-disable-next-line import/no-extraneous-dependencies
+// import PropTypes from 'prop-types';
+// import classes from './AddBook.module.css';
+
+// const AddBook = ({ onNewBook }) => {
+//   const [title, setTitle] = useState('');
+//   const [author, setAuthor] = useState('');
+//   const [gunra, setGunra] = useState('');
+
+//   const titleChangeHandler = (event) => {
+//     setTitle(event.target.value);
+//   };
+
+//   const authorChangeHandler = (event) => {
+//     setAuthor(event.target.value);
+//   };
+
+//   const gunraChangeHandler = (event) => {
+//     setGunra(event.target.value);
+//   };
+
+//   const submitChangeHandler = (event) => {
+//     event.preventDefault();
+
+//     if (title.trim().length === 0 || author.trim().length === 0 || gunra.trim().length === 0) {
+//       return;
+//     }
+
+//     const newBookInfo = {
+//       id: Date.now(),
+//       title,
+//       author,
+//       gunra,
+//     };
+
+//     const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
+//     existingBooks.push(newBookInfo);
+
+//     localStorage.setItem('books', JSON.stringify(existingBooks));
+
+//     onNewBook(existingBooks);
+
+//     setAuthor('');
+//     setGunra('');
+//     setTitle('');
+//   };
+
+//   return (
+//     <div className={classes['form-container']}>
+//       <h1>Add New Book</h1>
+//       <form onSubmit={submitChangeHandler}>
+//         <div className={classes['form-group']}>
+//           <input
+//             type="text"
+//             placeholder="Enter Title"
+//             onChange={titleChangeHandler}
+//             value={title}
+//           />
+//           <input
+//             type="text"
+//             placeholder="Enter Gunra"
+//             onChange={gunraChangeHandler}
+//             value={gunra}
+//           />
+//           <input
+//             type="text"
+//             placeholder="Enter Author Name"
+//             onChange={authorChangeHandler}
+//             value={author}
+//           />
+
+//           <div className={classes['btn-container']}>
+//             <button type="submit" className={classes['btn-add']}>
+//               Add Book
+//             </button>
+//           </div>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
+// // Add prop validation for onNewBook
+// AddBook.propTypes = {
+//   onNewBook: PropTypes.func.isRequired,
+// };
+
+// export default AddBook;
+
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../../redux/books/booksSlice';
 import classes from './AddBook.module.css';
 
-const AddBook = ({ onNewBook }) => {
+const AddBook = () => {
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [gunra, setGunra] = useState('');
+  const [category, setCategory] = useState('');
 
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
@@ -16,33 +108,29 @@ const AddBook = ({ onNewBook }) => {
     setAuthor(event.target.value);
   };
 
-  const gunraChangeHandler = (event) => {
-    setGunra(event.target.value);
+  const categoryChangeHandler = (event) => {
+    setCategory(event.target.value);
   };
 
   const submitChangeHandler = (event) => {
     event.preventDefault();
 
-    if (title.trim().length === 0 || author.trim().length === 0 || gunra.trim().length === 0) {
+    if (title.trim().length === 0 || author.trim().length === 0 || category.trim().length === 0) {
       return;
     }
 
     const newBookInfo = {
-      id: Date.now(),
+      item_id: `item${Date.now()}`,
       title,
       author,
-      gunra,
+      category,
     };
 
-    const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
-    existingBooks.push(newBookInfo);
+    dispatch(addBook(newBookInfo));
 
-    localStorage.setItem('books', JSON.stringify(existingBooks));
-
-    onNewBook(existingBooks);
-
+    // Reset the form
     setAuthor('');
-    setGunra('');
+    setCategory('');
     setTitle('');
   };
 
@@ -59,9 +147,9 @@ const AddBook = ({ onNewBook }) => {
           />
           <input
             type="text"
-            placeholder="Enter Gunra"
-            onChange={gunraChangeHandler}
-            value={gunra}
+            placeholder="Enter Category"
+            onChange={categoryChangeHandler}
+            value={category}
           />
           <input
             type="text"
@@ -79,11 +167,6 @@ const AddBook = ({ onNewBook }) => {
       </form>
     </div>
   );
-};
-
-// Add prop validation for onNewBook
-AddBook.propTypes = {
-  onNewBook: PropTypes.func.isRequired,
 };
 
 export default AddBook;
