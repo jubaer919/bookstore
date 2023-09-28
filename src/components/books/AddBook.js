@@ -1,6 +1,7 @@
+// components/AddBook.js
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../../redux/books/booksSlice';
+import { addBookAsync } from '../../redux/books/booksSlice';
 import classes from './AddBook.module.css';
 
 const AddBook = () => {
@@ -36,12 +37,17 @@ const AddBook = () => {
       category,
     };
 
-    dispatch(addBook(newBookInfo));
-
-    // Reset the form
-    setAuthor('');
-    setCategory('');
-    setTitle('');
+    dispatch(addBookAsync(newBookInfo))
+      .then(() => {
+        // Reset the form
+        setAuthor('');
+        setCategory('');
+        setTitle('');
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('Error adding book:', error);
+      });
   };
 
   return (

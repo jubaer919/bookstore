@@ -1,17 +1,23 @@
-import { Route, Routes } from 'react-router-dom';
-import NavBar from './components/Layout/NavBar';
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
 import Books from './components/books/Books';
-import Catagories from './components/catagories/Catagories';
+import AddBook from './components/books/AddBook';
+import store from './redux/store';
+import { fetchBooks } from './redux/books/booksSlice';
 
 function App() {
+  useEffect(() => {
+    store.dispatch(fetchBooks());
+  }, []);
+
   return (
-    <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Books />} />
-        <Route path="/categories" element={<Catagories />} />
-      </Routes>
-    </>
+    <Provider store={store}>
+      <div>
+        <h1>Bookstore App</h1>
+        <Books />
+        <AddBook />
+      </div>
+    </Provider>
   );
 }
 
