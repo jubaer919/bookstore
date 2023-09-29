@@ -8,17 +8,49 @@ const Book = ({
   title, author, category, id,
 }) => {
   const dispatch = useDispatch();
+
+  const randomProgress = Math.floor(Math.random() * 100);
+  const chapterProgress = `CHAPTER ${Math.floor(Math.random() * 20)}`;
+  const progresspercentage = `${randomProgress} %`;
+
   const handleRemoveBook = () => {
     dispatch(removeBookAsync(id));
   };
   return (
     <div className={classes['book-container']}>
-      <p className={classes.gunra}>{category}</p>
-      <h1>{title}</h1>
-      <p className={classes.author}>{author}</p>
-      <button type="button" className={classes['btn-remove']} onClick={handleRemoveBook}>
-        Remove
-      </button>
+      <div>
+        <p className={classes.gunra}>{category}</p>
+        <h1>{title}</h1>
+        <p className={classes.author}>{author}</p>
+        <div>
+          <button type="button" className={classes['btn-remove']}>Comments</button>
+          <button type="button" className={classes['btn-remove']} onClick={handleRemoveBook}>
+            Remove
+          </button>
+          <button type="button" className={classes['btn-remove']}>Edit</button>
+        </div>
+      </div>
+      <div className={classes.design}>
+        <div className={classes.progress}>
+          <div className={classes['circle-wrap']}>
+            <div className={classes.circle}>
+              <svg>
+                <circle cx="35" cy="35" r="35" />
+                <circle cx="35" cy="35" r="35" />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <h3>{progresspercentage}</h3>
+            <p>Completed</p>
+          </div>
+        </div>
+        <div className={classes.chapter}>
+          <p className={classes.current}>CURRENT CHAPTER</p>
+          <h3 className={classes['chapter-name']}>{chapterProgress}</h3>
+          <button type="button" className={classes['btn-update']}>UPDATE PROGRESS</button>
+        </div>
+      </div>
     </div>
   );
 };

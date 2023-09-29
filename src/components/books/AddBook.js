@@ -8,39 +8,32 @@ const AddBook = () => {
   const dispatch = useDispatch();
 
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
 
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
   };
 
-  const authorChangeHandler = (event) => {
-    setAuthor(event.target.value);
-  };
-
   const categoryChangeHandler = (event) => {
     setCategory(event.target.value);
   };
 
-  const submitChangeHandler = (event) => {
+  const submitChangeHandler = async (event) => {
     event.preventDefault();
 
-    if (title.trim().length === 0 || author.trim().length === 0 || category.trim().length === 0) {
+    if (title.trim().length === 0 || category.trim().length === 0) {
       return;
     }
 
     const newBookInfo = {
       item_id: `item${Date.now()}`,
       title,
-      author,
+      author: 'Christopher Nolen',
       category,
     };
 
-    dispatch(addBookAsync(newBookInfo))
+    await dispatch(addBookAsync(newBookInfo))
       .then(() => {
-        // Reset the form
-        setAuthor('');
         setCategory('');
         setTitle('');
       })
@@ -53,25 +46,21 @@ const AddBook = () => {
   return (
     <div className={classes['form-container']}>
       <h1>Add New Book</h1>
-      <form onSubmit={submitChangeHandler}>
+      <form onSubmit={submitChangeHandler} className={classes.form}>
         <div className={classes['form-group']}>
           <input
             type="text"
             placeholder="Enter Title"
             onChange={titleChangeHandler}
             value={title}
+            className={classes['input-1']}
           />
           <input
             type="text"
             placeholder="Enter Category"
             onChange={categoryChangeHandler}
             value={category}
-          />
-          <input
-            type="text"
-            placeholder="Enter Author Name"
-            onChange={authorChangeHandler}
-            value={author}
+            className={classes['input-2']}
           />
 
           <div className={classes['btn-container']}>

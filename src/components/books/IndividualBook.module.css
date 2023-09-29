@@ -5,6 +5,8 @@
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
+  display: flex;
+  align-items: center;
 }
 
 .gunra {
@@ -24,4 +26,79 @@
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+.design {
+  margin: 0 2rem 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.design > * {
+  padding: 0 3rem;
+}
+
+.design > *:not(:last-child) {
+  border-right: 1px solid #aaa;
+}
+
+.current {
+  font-size: 14px;
+  color: rgb(156, 152, 152);
+  margin-bottom: 2px;
+}
+
+.chapter-name {
+  margin-bottom: 1rem;
+}
+
+.btn-update {
+  padding: 0.4rem 2rem;
+  background-color: rgb(31, 147, 192);
+  font-weight: bold;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle {
+  position: relative;
+  width: 85px;
+  height: 85px;
+}
+
+.circle svg {
+  position: relative;
+  width: 85px;
+  height: 85px;
+}
+
+.circle svg circle {
+  width: 85px;
+  height: 85px;
+  fill: none;
+  stroke-width: 10;
+  stroke: #000;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  stroke-linecap: round;
+}
+
+.circle svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #f3f3f3;
+}
+
+.circle svg circle:nth-child(2) {
+  stroke-dashoffset: calc(300 - (300 * 55) / 100);
+  stroke: rgb(31, 147, 192);
 }

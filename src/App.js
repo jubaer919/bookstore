@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Books from './components/books/Books';
-import AddBook from './components/books/AddBook';
 import store from './redux/store';
 import { fetchBooks } from './redux/books/booksSlice';
+import Catagories from './components/catagories/Catagories';
+import NavBar from './components/Layout/NavBar';
 
 function App() {
   useEffect(() => {
@@ -12,11 +14,11 @@ function App() {
 
   return (
     <Provider store={store}>
-      <div>
-        <h1>Bookstore App</h1>
-        <Books />
-        <AddBook />
-      </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Books />} />
+        <Route path="/categories" element={<Catagories />} />
+      </Routes>
     </Provider>
   );
 }

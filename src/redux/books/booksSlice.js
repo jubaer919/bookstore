@@ -1,4 +1,3 @@
-// slices/bookSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -8,21 +7,11 @@ const initialState = {
   error: null,
 };
 
-// export const fetchBooks = createAsyncThunk('book/fetchBooks', async () => {
-//   const response = await axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/54ctZ95Mc0DVi30nwDMc/books');
-//   const books = Object.keys(response.data).map((key) => ({
-//     item_id: key,
-//     ...response.data[key][0],
-//   }));
-//   return books;
-// });
-
 export const fetchBooks = createAsyncThunk('book/fetchBooks', async () => {
   const response = await axios.get(
     'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/54ctZ95Mc0DVi30nwDMc/books',
   );
 
-  /* eslint-disable camelcase */
   const books = Object.entries(response.data).map(([item_id, bookDetails]) => ({
     item_id,
     ...bookDetails[0],
@@ -32,13 +21,11 @@ export const fetchBooks = createAsyncThunk('book/fetchBooks', async () => {
 });
 
 export const addBookAsync = createAsyncThunk('books/addBookAsync', async (newBookInfo) => {
-  const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/54ctZ95Mc0DVi30nwDMc/books', newBookInfo);
-  return response.data[0];
+  await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/54ctZ95Mc0DVi30nwDMc/books', newBookInfo);
+  return newBookInfo;
 });
 
 export const removeBookAsync = createAsyncThunk('books/removeBookAsync', async (itemId) => {
-  // eslint-disable-next-line no-console
-  console.log('Removing book with itemId:', itemId);
   await axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/54ctZ95Mc0DVi30nwDMc/books/${itemId}`);
   return itemId;
 });
@@ -73,7 +60,7 @@ const bookSlice = createSlice({
       })
       .addCase(removeBookAsync.fulfilled, (state, action) => {
         state.status = 'Booked Removed';
-        state.books = state.books.filter((book) => book.id !== action.payload);
+        state.books = state.books.filter((book) => book.item_id !== action.payload);
       });
   },
 });
