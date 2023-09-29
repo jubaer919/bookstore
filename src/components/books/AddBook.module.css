@@ -18,6 +18,10 @@
   padding: 10px;
 }
 
+.form-group input::placeholder {
+  color: #ccc;
+}
+
 .btn-container {
   display: flex;
   align-items: center;
@@ -26,7 +30,7 @@
 
 .btn-add {
   padding: 0.75rem 2rem;
-  background-color: rgb(31, 147, 192);
+  background-color: #0290ff;
   font-weight: bold;
   color: white;
   outline: none;
@@ -45,4 +49,8 @@
 
 .books {
   padding-bottom: 2rem;
+}
+
+.heading-primary {
+  color: #777;
 }

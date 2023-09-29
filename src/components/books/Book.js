@@ -11,7 +11,7 @@ const Book = ({
 
   const randomProgress = Math.floor(Math.random() * 100);
   const chapterProgress = `CHAPTER ${Math.floor(Math.random() * 20)}`;
-  const progresspercentage = `${randomProgress} %`;
+  const progresspercentage = `${randomProgress}%`;
 
   const handleRemoveBook = () => {
     dispatch(removeBookAsync(id));
@@ -23,7 +23,7 @@ const Book = ({
         <h1>{title}</h1>
         <p className={classes.author}>{author}</p>
         <div>
-          <button type="button" className={classes['btn-remove']}>Comments</button>
+          <button type="button" className={`${classes['btn-remove']} ${classes['first-button']}`}>Comments</button>
           <button type="button" className={classes['btn-remove']} onClick={handleRemoveBook}>
             Remove
           </button>
@@ -41,8 +41,8 @@ const Book = ({
             </div>
           </div>
           <div>
-            <h3>{progresspercentage}</h3>
-            <p>Completed</p>
+            <h3 className={classes.progresspercentage}>{progresspercentage}</h3>
+            <p className={classes.completed}>Completed</p>
           </div>
         </div>
         <div className={classes.chapter}>

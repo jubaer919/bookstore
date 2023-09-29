@@ -45,7 +45,7 @@ const AddBook = () => {
 
   return (
     <div className={classes['form-container']}>
-      <h1>Add New Book</h1>
+      <h1 className={classes['heading-primary']}>Add New Book</h1>
       <form onSubmit={submitChangeHandler} className={classes.form}>
         <div className={classes['form-group']}>
           <input

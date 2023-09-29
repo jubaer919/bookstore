@@ -22,7 +22,7 @@
   background-color: transparent;
   padding: 5px 10px;
   font-size: 20px;
-  color: rgb(35, 35, 216);
+  color: rgb(113, 153, 228);
   outline: none;
   border: none;
   cursor: pointer;
@@ -50,11 +50,12 @@
 
 .chapter-name {
   margin-bottom: 1rem;
+  color: #777;
 }
 
 .btn-update {
   padding: 0.4rem 2rem;
-  background-color: rgb(31, 147, 192);
+  background-color: #0290ff;
   font-weight: bold;
   color: white;
   outline: none;
@@ -100,5 +101,24 @@
 
 .circle svg circle:nth-child(2) {
   stroke-dashoffset: calc(300 - (300 * 55) / 100);
-  stroke: rgb(31, 147, 192);
+  stroke: #0290ff;
+}
+
+.first-button {
+  padding-left: 0;
+}
+
+.btn-remove:not(:last-child) {
+  border-right: 1px solid rgb(201, 210, 227);
+}
+
+.progresspercentage {
+  font-size: 24px;
+  font-weight: normal;
+  color: #555;
+}
+
+.completed {
+  font-size: 14px;
+  color: #aaa;
 }
