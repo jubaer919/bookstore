@@ -1,73 +1,66 @@
+// components/AddBook.js
 import React, { useState } from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addBookAsync } from '../../redux/books/booksSlice';
 import classes from './AddBook.module.css';
 
-const AddBook = ({ onNewBook }) => {
+const AddBook = () => {
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [gunra, setGunra] = useState('');
+  const [category, setCategory] = useState('');
 
   const titleChangeHandler = (event) => {
     setTitle(event.target.value);
   };
 
-  const authorChangeHandler = (event) => {
-    setAuthor(event.target.value);
+  const categoryChangeHandler = (event) => {
+    setCategory(event.target.value);
   };
 
-  const gunraChangeHandler = (event) => {
-    setGunra(event.target.value);
-  };
-
-  const submitChangeHandler = (event) => {
+  const submitChangeHandler = async (event) => {
     event.preventDefault();
 
-    if (title.trim().length === 0 || author.trim().length === 0 || gunra.trim().length === 0) {
+    if (title.trim().length === 0 || category.trim().length === 0) {
       return;
     }
 
     const newBookInfo = {
-      id: Date.now(),
+      item_id: `item${Date.now()}`,
       title,
-      author,
-      gunra,
+      author: 'Christopher Nolen',
+      category,
     };
 
-    const existingBooks = JSON.parse(localStorage.getItem('books')) || [];
-    existingBooks.push(newBookInfo);
-
-    localStorage.setItem('books', JSON.stringify(existingBooks));
-
-    onNewBook(existingBooks);
-
-    setAuthor('');
-    setGunra('');
-    setTitle('');
+    await dispatch(addBookAsync(newBookInfo))
+      .then(() => {
+        setCategory('');
+        setTitle('');
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('Error adding book:', error);
+      });
   };
 
   return (
     <div className={classes['form-container']}>
-      <h1>Add New Book</h1>
-      <form onSubmit={submitChangeHandler}>
+      <h1 className={classes['heading-primary']}>Add New Book</h1>
+      <form onSubmit={submitChangeHandler} className={classes.form}>
         <div className={classes['form-group']}>
           <input
             type="text"
             placeholder="Enter Title"
             onChange={titleChangeHandler}
             value={title}
+            className={classes['input-1']}
           />
           <input
             type="text"
-            placeholder="Enter Gunra"
-            onChange={gunraChangeHandler}
-            value={gunra}
-          />
-          <input
-            type="text"
-            placeholder="Enter Author Name"
-            onChange={authorChangeHandler}
-            value={author}
+            placeholder="Enter Category"
+            onChange={categoryChangeHandler}
+            value={category}
+            className={classes['input-2']}
           />
 
           <div className={classes['btn-container']}>
@@ -79,11 +72,6 @@ const AddBook = ({ onNewBook }) => {
       </form>
     </div>
   );
-};
-
-// Add prop validation for onNewBook
-AddBook.propTypes = {
-  onNewBook: PropTypes.func.isRequired,
 };
 
 export default AddBook;

@@ -9,11 +9,41 @@
 }
 
 .heading {
-  color: rgb(85, 127, 198);
+  color: #0290ff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
 }
 
 .nav-list {
   display: flex;
   align-items: center;
   gap: 2rem;
+  flex: 1;
+}
+
+.books-link {
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 0.813rem;
+}
+
+.categories {
+  color: #121212;
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 0.813rem;
+}
+
+.img {
+  border: 1px solid #ccc;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
 }

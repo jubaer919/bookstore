@@ -5,23 +5,144 @@
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.375rem;
+  color: #121212;
 }
 
 .gunra {
-  color: #777;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.5;
+  color: #121212;
+  font-size: 0.875rem;
+  margin-bottom: 3px;
 }
 
 .author {
-  color: rgb(113, 153, 228);
+  color: #4386bf;
   margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
 }
 
 .btn-remove {
   background-color: transparent;
   padding: 5px 10px;
-  font-size: 20px;
-  color: rgb(35, 35, 216);
+  font-size: 0.875rem;
+  color: #4386bf;
   outline: none;
   border: none;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.design {
+  margin: 0 2rem 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.design > * {
+  padding: 0 3rem;
+}
+
+.design > *:not(:last-child) {
+  border-right: 1px solid #eee;
+}
+
+.current {
+  font-size: 0.813rem;
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+
+.chapter-name {
+  margin-bottom: 1rem;
+  color: #121212;
+  font-weight: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+}
+
+.btn-update {
+  padding: 0.4rem 2rem;
+  background-color: #0290ff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle {
+  position: relative;
+  width: 85px;
+  height: 85px;
+}
+
+.circle svg {
+  position: relative;
+  width: 85px;
+  height: 85px;
+}
+
+.circle svg circle {
+  width: 85px;
+  height: 85px;
+  fill: none;
+  stroke-width: 10;
+  stroke: #000;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  stroke-linecap: round;
+}
+
+.circle svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #f3f3f3;
+}
+
+.circle svg circle:nth-child(2) {
+  stroke-dashoffset: calc(300 - (300 * 55) / 100);
+  stroke: #0290ff;
+}
+
+.first-button {
+  padding-left: 0;
+}
+
+.btn-remove:not(:last-child) {
+  border-right: 1px solid rgb(201, 210, 227);
+}
+
+.progresspercentage {
+  font-size: 2rem;
+  font-weight: normal;
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.completed {
+  font-size: 0.875rem;
+  color: #121212;
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
 }

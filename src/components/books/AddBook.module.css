@@ -1,21 +1,26 @@
 .form-container {
-  width: 60%;
-  margin: 4rem auto;
-  background-color: white;
+  width: 80%;
+  margin: 1rem auto;
   border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  padding: 1rem;
+  padding: 2rem 1rem 1rem 1rem;
+  border-top: 1px solid #aaa;
 }
 
 .form-group {
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
 .form-group input {
   padding: 10px;
+  border: 1px solid #e8e8e8;
+}
+
+.form-group input::placeholder {
+  color: #ccc;
 }
 
 .btn-container {
@@ -25,12 +30,31 @@
 }
 
 .btn-add {
-  padding: 1rem 2rem;
-  background-color: rgb(31, 147, 192);
+  padding: 0.75rem 2rem;
+  background-color: #0290ff;
   font-weight: bold;
   color: white;
   outline: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.input-2 {
+  margin-left: auto;
+}
+
+.input-1 {
+  flex: 1;
+}
+
+.books {
+  padding-bottom: 2rem;
+}
+
+.heading-primary {
+  color: #888;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
