@@ -16,6 +16,7 @@
 
 .form-group input {
   padding: 10px;
+  border: 1px solid #e8e8e8;
 }
 
 .form-group input::placeholder {
@@ -52,5 +53,8 @@
 }
 
 .heading-primary {
-  color: #777;
+  color: #888;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
 }

@@ -20,7 +20,7 @@ const Book = ({
     <div className={classes['book-container']}>
       <div>
         <p className={classes.gunra}>{category}</p>
-        <h1>{title}</h1>
+        <h1 className={classes.heading}>{title}</h1>
         <p className={classes.author}>{author}</p>
         <div>
           <button type="button" className={`${classes['btn-remove']} ${classes['first-button']}`}>Comments</button>

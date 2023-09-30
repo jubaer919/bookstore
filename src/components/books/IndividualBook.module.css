@@ -9,23 +9,37 @@
   align-items: center;
 }
 
+.heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.375rem;
+  color: #121212;
+}
+
 .gunra {
-  color: #777;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.5;
+  color: #121212;
+  font-size: 0.875rem;
+  margin-bottom: 3px;
 }
 
 .author {
-  color: rgb(113, 153, 228);
+  color: #4386bf;
   margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
 }
 
 .btn-remove {
   background-color: transparent;
   padding: 5px 10px;
-  font-size: 20px;
-  color: rgb(113, 153, 228);
+  font-size: 0.875rem;
+  color: #4386bf;
   outline: none;
   border: none;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .design {
@@ -43,25 +57,32 @@
 }
 
 .current {
-  font-size: 14px;
-  color: rgb(156, 152, 152);
-  margin-bottom: 2px;
+  font-size: 0.813rem;
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.5;
+  margin-bottom: 8px;
 }
 
 .chapter-name {
   margin-bottom: 1rem;
-  color: #777;
+  color: #121212;
+  font-weight: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
 }
 
 .btn-update {
   padding: 0.4rem 2rem;
   background-color: #0290ff;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
   color: white;
   outline: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 0.875rem;
 }
 
 .progress {
@@ -113,12 +134,15 @@
 }
 
 .progresspercentage {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: normal;
-  color: #555;
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .completed {
-  font-size: 14px;
-  color: #aaa;
+  font-size: 0.875rem;
+  color: #121212;
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
 }

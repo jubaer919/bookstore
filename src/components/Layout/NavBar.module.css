@@ -10,6 +10,9 @@
 
 .heading {
   color: #0290ff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.875rem;
+  font-weight: bold;
 }
 
 .nav-list {
@@ -19,8 +22,19 @@
   flex: 1;
 }
 
+.books-link {
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 0.813rem;
+}
+
 .categories {
-  color: #777;
+  color: #121212;
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  font-size: 0.813rem;
 }
 
 .img {
